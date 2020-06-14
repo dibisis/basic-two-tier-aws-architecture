@@ -8,6 +8,10 @@ Example: ~/.ssh/terraform.pub
 DESCRIPTION
 }
 
+variable "private_key_path" {
+  description = "private path"
+}
+
 variable "key_name" {
   description = "Desired name of AWS key pair"
 
@@ -22,8 +26,8 @@ variable "aws_region" {
 variable "aws_amis" {
   default = {
     ap-northeast-2 = "ami-0761dd1f89936259e"
-//    us-east-1 = "ami-1d4e7a66"
-//    us-west-1 = "ami-969ab1f6"
-//    us-west-2 = "ami-8803e0f0"
+    //    us-east-1 = "ami-1d4e7a66"
+    //    us-west-1 = "ami-969ab1f6"
+    //    us-west-2 = "ami-8803e0f0"
   }
 }

@@ -85,9 +85,12 @@ resource "aws_security_group" "default" {
 resource "aws_elb" "web" {
   name = "terraform-example-elb"
 
-  subnets         = [aws_subnet.default.id]
-  security_groups = [aws_security_group.elb.id]
-  instances       = [aws_instance.web.id]
+  subnets = [
+  aws_subnet.default.id]
+  security_groups = [
+  aws_security_group.elb.id]
+  instances = [
+  aws_instance.web.id]
 
   listener {
     instance_port     = 80
@@ -100,6 +103,7 @@ resource "aws_elb" "web" {
 resource "aws_key_pair" "auth" {
   key_name   = var.key_name
   public_key = file(var.public_key_path)
+
 }
 
 resource "aws_instance" "web" {
@@ -108,7 +112,9 @@ resource "aws_instance" "web" {
   connection {
     # The default username for our AMI
     user = "ubuntu"
-    host = self.public_ip
+
+    private_key = file(var.private_key_path)
+    host        = self.public_ip
     # The connection will use the local SSH agent for authentication.
   }
 
