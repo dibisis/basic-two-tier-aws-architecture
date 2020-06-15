@@ -1,3 +1,5 @@
+![Terraform](https://github.com/dibisis/basic-two-tier-aws-architecture/workflows/Terraform/badge.svg)
+
 # Basic Two-Tier AWS Architecture
 
 Two-Tier
